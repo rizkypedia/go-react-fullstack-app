@@ -19,6 +19,10 @@ Fullstack app with a Go backend and a React + TypeScript frontend. Both run in D
 - Write tests for new functionality.
 - Run the relevant tests (and `go vet` / `npm run lint`) before finishing.
 
+## Testing
+
+Use mocks instead of making direct requests to an API, a database or file resources.
+
 ## Commands
 
 - Start the stack: `docker compose up --build` (backend on `127.0.0.1:8080`, frontend on `127.0.0.1:5173`)
