@@ -4,6 +4,13 @@ Fullstack app with a Go backend and a React + TypeScript frontend. Both run in D
 
 ## Project guidelines
 
+### Tech Stack
+
+- GO 1.25
+- Node
+- React Typescript
+- Docker Compose
+
 ### General
 
 - Follow the existing project architecture.
@@ -58,6 +65,10 @@ Lives in `backend/`.
 
 - **Separation of concerns**: handlers go in `internal/api/handlers`; reusable helpers go in `utilities`; server security and authentication go in `internal/api`.
 - **Tests** live in `tests/` and mirror the source path, e.g. `internal/api/handlers/customer.go` → `tests/internal/api/handlers/customer_test.go`. Use an external test package (`package handlers_test`) and test through exported identifiers only.
+- Prefer Go standard library where possible.
+- Keep functions small and focused.
+- Handle errors explicitly.
+- Follow idiomatic Go conventions.
 
 ## Frontend
 
