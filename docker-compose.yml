@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      target: development
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      JWT_SECRET: ${JWT_SECRET:?Copy .env.example to .env and set JWT_SECRET}
+      DEMO_USERNAME: ${DEMO_USERNAME:?Copy .env.example to .env and set DEMO_USERNAME}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:?Copy .env.example to .env and set DEMO_PASSWORD}
+      FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:-http://localhost:5173}
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./backend:/app
+      - backend-tmp:/app/tmp
+
+  frontend:
+    build:
+      context: ./frontend
+      target: development
+    ports:
+      - "127.0.0.1:5173:5173"
+    volumes:
+      - ./frontend:/app
+      - frontend-node-modules:/app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  backend-tmp:
+  frontend-node-modules:

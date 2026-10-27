@@ -1,0 +1,12 @@
+.env
+.DS_Store
+
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+frontend/*.tsbuildinfo
+
+backend/tmp/
+backend/api
+
+/agentic/
